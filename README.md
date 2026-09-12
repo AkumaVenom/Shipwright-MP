@@ -6,6 +6,10 @@
 
 If you're having any trouble after reading through this `README`, feel free to ask for help in the Support text channels. Please keep in mind that we do not condone piracy.
 
+<img width="3786" height="2020" alt="OnlineMultiplayZeldaOOT2" src="https://github.com/user-attachments/assets/c1a3fcbd-69ae-4ae3-bd2c-dc147515a459" />
+
+<img width="3840" height="2160" alt="OnlineMultiplayZeldaOOT" src="https://github.com/user-attachments/assets/68f71444-e2f2-40d8-ba96-37929169936a" />
+
 # Quick Start
 
 The Ship does not include any copyrighted assets.  You are required to provide a supported copy of the game.
