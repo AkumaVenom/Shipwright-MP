@@ -1,6 +1,10 @@
 # Shipwright-MP — Direct-IP multiplayer source preview
 
-**Unofficial, experimental source snapshot. Not a compiled game or a validated multiplayer release.**
+Bring a friend to Hyrule.
+
+Host a game from the multiplayer menu, share your IP with friends, and meet up using your own save files. There is no separate server app to run.
+
+**Unofficial, experimental source snapshot.**
 
 This repository consolidates the supplied Shipwright baseline, the Direct-IP multiplayer source changes, Windows helper 1.2, and both reported compile corrections. No earlier patch ZIP needs to be applied to this snapshot. Repository packaging does not change the multiplayer scope.
 
