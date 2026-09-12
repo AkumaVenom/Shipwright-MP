@@ -14,6 +14,10 @@ Each player loads a local save slot. Personal-save mode is the default. Shared-a
 
 **Enemy AI, shared enemy/boss health, projectiles, physics and cutscene timing are not host-authoritative or fully replicated.** The complete modified game has not been successfully compiled or gameplay-tested in the packaging environment. Do not describe this as full co-op, fully synchronized multiplayer, or a stable release. Use trusted private sessions only: transport has no password authentication or encryption.
 
+<img width="3786" height="2020" alt="OnlineMultiplayZeldaOOT2" src="https://github.com/user-attachments/assets/326d429d-5e50-45fc-8935-05daba78ac69" />
+
+<img width="3840" height="2160" alt="OnlineMultiplayZeldaOOT" src="https://github.com/user-attachments/assets/84951b56-0f4f-4b7c-a313-27200a31c71e" />
+
 ## Source layout
 
 `soh/` contains game source and project asset definitions. `libultraship/` and `torch/` are the exact bundled dependency trees from the supplied archive, tracked as ordinary folders, **not Git submodules**. Their former `.git` pointer files referenced missing history and have been removed. Do not run submodule update commands for this snapshot. Other CMake dependencies still require network access when building.
