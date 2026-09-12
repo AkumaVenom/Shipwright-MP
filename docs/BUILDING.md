@@ -1,3 +1,5 @@
+> **Consolidated GitHub snapshot:** start with [BUILD_WINDOWS.md](../BUILD_WINDOWS.md). The dependency source trees are vendored ordinary folders. The upstream clone, submodule and CI guidance below is retained only as reference; do not replace this modified source with a new upstream download. Publishing source requires no compilation.
+
 # Building Ship of Harkinian
 
 ## Windows

@@ -36,7 +36,7 @@ void Anchor::SendPacket_UpdateRoomState() {
     payload["type"] = UPDATE_ROOM_STATE;
     payload["state"] = PrepRoomState();
 
-    Network::SendJsonToRemote(payload);
+    SendJsonToRemote(payload);
 }
 
 void Anchor::HandlePacket_UpdateRoomState(nlohmann::json payload) {

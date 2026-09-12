@@ -1,0 +1,39 @@
+PASS No distributed source file hidden by ignore rules
+PASS git -c core.autocrlf=false
+PASS git ls-files -z
+PASS Normal git add tracks every intended file
+PASS git ls-files --stage
+PASS No submodule gitlinks in index
+PASS No nested Git metadata
+PASS No active root workflow YAML files
+PASS Compile fix checksum: soh/soh/Network/Anchor/Anchor.h
+PASS Compile fix checksum: soh/soh/Network/Direct/DirectMultiplayer.cpp
+PASS No ROM/save/generated executable/font/archive binaries by extension
+PASS No N64 ROM header signatures
+PASS Only credential-pattern match is unchanged upstream MPQ signing code
+PASS All six bundled PEM keys are public keys
+PASS Build, log, ROM, save, secret and downloaded-font paths ignored
+PASS No file exceeds Git 100-MiB file threshold
+PASS CMake restore copies all five original matching files
+PASS Restored bytes match source: Fipps-Regular.otf
+PASS Restored bytes match source: Montserrat-Regular.ttf
+PASS Restored bytes match source: Inconsolata-Regular.ttf
+PASS Restored bytes match source: NotoSansJP-Regular.ttf
+PASS Restored bytes match source: PressStart2P-Regular.ttf
+PASS CMake restore reuses matching files without rewriting
+PASS Existing mismatched file rejected and retained
+PASS DOWNLOAD path accepts verified fixture
+PASS Downloaded hash mismatch removed, not installed
+PASS Failed download leaves no partial target
+PASS Unsafe manifest name rejected
+PASS git -c user.name=Snapshot Check
+PASS Fresh local clone succeeds
+PASS Fresh clone contains the entire intended source file set
+PASS Fresh clone retains critical source build-helper/WindowsHelper.ps1
+PASS Fresh clone retains critical source soh/macosx/sohIcon.png
+PASS Fresh clone retains critical source torch/lib/StormLib/src/libtomcrypt/src/headers/tomcrypt.h
+PASS Fresh clone retains critical source libultraship/CMakeLists.txt
+PASS Fresh clone retains critical source torch/CMakeLists.txt
+PASS 19 static contracts also pass from fresh clone
+PASS Fresh clone has no pending changes
+CHECKS 38 PASSED

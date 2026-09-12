@@ -1,0 +1,8 @@
+SHIPWRIGHT-MP: CONSOLIDATED GITHUB SOURCE
+
+TO PUBLISH: read PUBLISH_TO_GITHUB.md. No build or setup is required.
+TO BUILD LATER: read BUILD_WINDOWS.md.
+
+All previously supplied compile fixes are already included.
+This is a separate source snapshot. Do not overwrite your current build folder.
+It is an experimental source preview, not a finished compiled multiplayer release.

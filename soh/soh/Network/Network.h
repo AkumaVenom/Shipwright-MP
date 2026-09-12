@@ -8,8 +8,8 @@
 
 class Network {
   private:
-    IPaddress networkAddress;
-    TCPsocket networkSocket;
+    IPaddress networkAddress{};
+    TCPsocket networkSocket = nullptr;
     std::thread receiveThread;
     std::string receivedData;
 
@@ -18,8 +18,8 @@ class Network {
     void HandleRemoteJson(std::string payload);
 
   public:
-    bool isEnabled;
-    bool isConnected;
+    bool isEnabled = false;
+    bool isConnected = false;
 
     void Enable(const char* host, uint16_t port);
     void Disable();

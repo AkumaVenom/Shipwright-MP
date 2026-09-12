@@ -411,3 +411,7 @@ ReleaseObj/*
 
 # Junk from App Bundle
 appsupport
+
+# Supplied source icons are not ROM-extracted output.
+!/icon.jpg
+!/macosx/sohIcon.png

@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "source": "Files present in the supplied Shipwright-MP baseline; content pinned by SHA-256, upstream retrieval URL is branch-based.",
+  "files": [
+    {
+      "name": "Fipps-Regular.otf",
+      "sha256": "39c976af324dcaa5ea9543db8a9b99158c5758fe164a667d636065f66eea9a23",
+      "size": 34220,
+      "url": "https://raw.githubusercontent.com/HarbourMasters/Shipwright/develop/soh/assets/custom/fonts/Fipps-Regular.otf"
+    },
+    {
+      "name": "Inconsolata-Regular.ttf",
+      "sha256": "9d542b954a5ccbf5edd68f240f4a4de9c99acbe3cb4291f0089796e99cddb02e",
+      "size": 101752,
+      "url": "https://raw.githubusercontent.com/HarbourMasters/Shipwright/develop/soh/assets/custom/fonts/Inconsolata-Regular.ttf"
+    },
+    {
+      "name": "Montserrat-Regular.ttf",
+      "sha256": "c3fb0280e4339f6c70cea42b8b432c6fb17fde130fbb12e9209c7cdfa79d976f",
+      "size": 197624,
+      "url": "https://raw.githubusercontent.com/HarbourMasters/Shipwright/develop/soh/assets/custom/fonts/Montserrat-Regular.ttf"
+    },
+    {
+      "name": "NotoSansJP-Regular.ttf",
+      "sha256": "f32915916d2d6f35bb0d3d7ef0784504914bf0235afb02eec552bd14d06d3552",
+      "size": 5450308,
+      "url": "https://raw.githubusercontent.com/HarbourMasters/Shipwright/develop/soh/assets/custom/fonts/NotoSansJP-Regular.ttf"
+    },
+    {
+      "name": "PressStart2P-Regular.ttf",
+      "sha256": "8d0248e41694fdd875dbcde859ee1bae5982ecfdc6c7e5e451b48950d29ba95a",
+      "size": 116008,
+      "url": "https://raw.githubusercontent.com/HarbourMasters/Shipwright/develop/soh/assets/custom/fonts/PressStart2P-Regular.ttf"
+    }
+  ]
+}

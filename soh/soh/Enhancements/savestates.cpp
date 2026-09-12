@@ -5,6 +5,7 @@
 #include <ship/window/Window.h>
 
 #include "savestates.h"
+#include "soh/Network/Direct/DirectMultiplayer.h"
 #include <soh/OTRGlobals.h>
 #include <soh/OTRAudio.h>
 #include "savestate_serialize.h"
@@ -363,6 +364,12 @@ unsigned int SaveStateMgr::GetCurrentSlot(void) {
 }
 
 void SaveStateMgr::ProcessSaveStateRequests(void) {
+    if (Shipwright::Direct::Session::Get().Active()) {
+        // Save states restore raw actor/system memory and cannot be shared safely.
+        // Also cover requests queued immediately before the launch button was pressed.
+        while (!requests.empty()) requests.pop();
+        return;
+    }
     while (!this->requests.empty()) {
         const auto& request = this->requests.front();
 
@@ -394,6 +401,11 @@ void SaveStateMgr::ProcessSaveStateRequests(void) {
 }
 
 SaveStateReturn SaveStateMgr::AddRequest(const SaveStateRequest request) {
+    if (Shipwright::Direct::Session::Get().Active()) {
+        Ship::Context::GetRawInstance()->GetWindow()->GetGui()->GetGameOverlay()->TextDrawNotification(
+            3.0f, true, "Save states are disabled during multiplayer. Use a normal game save.");
+        return SaveStateReturn::FAIL_BAD_REQUEST;
+    }
     if (gPlayState == nullptr) {
         SPDLOG_ERROR("[SOH] Can not save or load a state outside of \"GamePlay\"");
         Ship::Context::GetRawInstance()->GetWindow()->GetGui()->GetGameOverlay()->TextDrawNotification(

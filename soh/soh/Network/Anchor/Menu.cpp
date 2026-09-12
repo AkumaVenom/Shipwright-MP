@@ -1,4 +1,5 @@
 #include "Anchor.h"
+#include "soh/Network/Direct/DirectMultiplayer.h"
 #include "soh/SohGui/SohGui.hpp"
 #include "soh/SohGui/SohMenu.h"
 #include "soh/util.h"
@@ -13,6 +14,10 @@ static std::vector<const char*> teleportModes = { "None", "Team Only", "All" };
 static std::vector<const char*> showLocationsModes = { "None", "Team Only", "All" };
 
 void AnchorMainMenu(WidgetInfo& info) {
+    if (Shipwright::Direct::Session::Get().Active()) {
+        ImGui::TextWrapped("A direct multiplayer session is active. Use Network > Multiplayer to manage or leave it.");
+        return;
+    }
     auto anchor = Anchor::Instance;
 
     std::string host = CVarGetString(CVAR_REMOTE_ANCHOR("Host"), "anchor.hm64.org");
@@ -162,6 +167,7 @@ void AnchorMainMenu(WidgetInfo& info) {
 }
 
 void AnchorAdminMenu(WidgetInfo& info) {
+    if (Shipwright::Direct::Session::Get().Active()) return;
     auto anchor = Anchor::Instance;
     bool isGlobalRoom = (std::string("soh-global") == CVarGetString(CVAR_REMOTE_ANCHOR("RoomId"), ""));
 

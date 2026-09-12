@@ -801,3 +801,8 @@ wut_create_wuhb(${PROJECT_NAME}
 INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/soh.rpx ${CMAKE_CURRENT_BINARY_DIR}/soh.wuhb DESTINATION . COMPONENT ship)
 
 endif()
+
+# Direct-IP transport uses nonblocking native sockets, independently of SDL_net.
+if(WIN32)
+    target_link_libraries(soh PRIVATE ws2_32)
+endif()

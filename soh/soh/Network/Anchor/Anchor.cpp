@@ -1,6 +1,7 @@
 #include <nlohmann/json.hpp>
 
 #include "Anchor.h"
+#include "soh/Network/Direct/DirectMultiplayer.h"
 #include "soh/Enhancements/nametag.h"
 #include "soh/ObjectExtension/ObjectExtension.h"
 
@@ -14,6 +15,9 @@ extern PlayState* gPlayState;
 // MARK: - Overrides
 
 void Anchor::Enable() {
+    if (Shipwright::Direct::Session::Get().Active()) {
+        return;
+    }
     Network::Enable(CVarGetString(CVAR_REMOTE_ANCHOR("Host"), "anchor.hm64.org"),
                     CVarGetInteger(CVAR_REMOTE_ANCHOR("Port"), 43383));
     ownClientId = CVarGetInteger(CVAR_REMOTE_ANCHOR("LastClientId"), 0);
@@ -21,6 +25,10 @@ void Anchor::Enable() {
 }
 
 void Anchor::Disable() {
+    if (Shipwright::Direct::Session::Get().Active()) {
+        Shipwright::Direct::Session::Get().Stop();
+        return;
+    }
     Network::Disable();
 
     clients.clear();
@@ -61,6 +69,14 @@ void Anchor::ProcessOutgoingPackets() {
 }
 
 void Anchor::SendJsonToRemote(nlohmann::json payload) {
+    if (Shipwright::Direct::Session::Get().Active()) {
+        // Packet application can trigger the same item/flag hooks. Never echo
+        // those mutations back, but allow the two legitimate request replies.
+        const auto type = payload.value("type", std::string{});
+        if (isProcessingIncomingPacket && type != TELEPORT_TO && type != UPDATE_TEAM_STATE) return;
+        Shipwright::Direct::Session::Get().Send(std::move(payload));
+        return;
+    }
     if (!isConnected) {
         return;
     }
@@ -91,21 +107,9 @@ void Anchor::OnIncomingJson(nlohmann::json payload) {
         SPDLOG_DEBUG("[Anchor] Received payload:\n{}", payload.dump());
     }
 
-    std::string packetType = payload["type"].get<std::string>();
-
-    // Ignore packets from mismatched clients, except for ALL_CLIENT_STATE, UPDATE_CLIENT_STATE, and PLAYER_UPDATE
-    if (packetType != ALL_CLIENT_STATE && packetType != UPDATE_CLIENT_STATE && packetType != PLAYER_UPDATE) {
-        if (payload.contains("clientId")) {
-            uint32_t clientId = payload["clientId"].get<uint32_t>();
-            if (clients.contains(clientId) && clients[clientId].clientVersion != clientVersion) {
-                return;
-            }
-        }
-    }
-
     // Queue all packets to be processed on the game thread
     std::lock_guard<std::mutex> lock(incomingPacketQueueMutex);
-    incomingPacketQueue.push(payload);
+    if (incomingPacketQueue.size() < 4096) incomingPacketQueue.push(std::move(payload));
 }
 
 void Anchor::ProcessIncomingPacketQueue() {
@@ -121,11 +125,16 @@ void Anchor::ProcessIncomingPacketQueue() {
         nlohmann::json payload = packetsToProcess.front();
         packetsToProcess.pop();
 
-        std::string packetType = payload["type"].get<std::string>();
-
         isProcessingIncomingPacket = true;
-
+        struct ResetProcessing { bool& flag; ~ResetProcessing() { flag = false; } } reset{ isProcessingIncomingPacket };
         try {
+            std::string packetType = payload.at("type").get<std::string>();
+            // Client-map access belongs to the game thread, not the receive thread.
+            if (packetType != ALL_CLIENT_STATE && packetType != UPDATE_CLIENT_STATE && packetType != PLAYER_UPDATE &&
+                payload.contains("clientId")) {
+                uint32_t clientId = payload.at("clientId").get<uint32_t>();
+                if (clients.contains(clientId) && clients.at(clientId).clientVersion != clientVersion) continue;
+            }
             // packetType here is a string so we can't use a switch statement
             if (packetType == ALL_CLIENT_STATE)
                 HandlePacket_AllClientState(payload);
@@ -212,6 +221,7 @@ void Anchor::RefreshClientActors() {
     }
 
     for (auto& [clientId, client] : clients) {
+        client.player = nullptr;
         if (!client.online || client.self) {
             continue;
         }

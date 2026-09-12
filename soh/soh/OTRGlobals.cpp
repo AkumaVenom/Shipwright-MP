@@ -83,6 +83,7 @@
 #include "soh/Network/CrowdControl/CrowdControl.h"
 #include "soh/Network/Sail/Sail.h"
 #include "soh/Network/Anchor/Anchor.h"
+#include "soh/Network/Direct/DirectMultiplayer.h"
 #include "Enhancements/game-interactor/GameInteractor.h"
 #include "Enhancements/randomizer/draw.h"
 #include <libultraship/controller/controldeck/ControlDeck.h>
@@ -1609,6 +1610,7 @@ extern "C" void InitOTR(int argc, char* argv[]) {
 
     srand(static_cast<unsigned int>(now));
     SDLNet_Init();
+    Shipwright::Direct::Session::Get().Initialize();
     if (CVarGetInteger(CVAR_REMOTE_CROWD_CONTROL("Enabled"), 0)) {
         CrowdControl::Instance->Enable();
     }
@@ -1628,6 +1630,7 @@ extern "C" void SaveManager_ThreadPoolWait() {
 }
 
 extern "C" void DeinitOTR() {
+    Shipwright::Direct::Session::Get().Shutdown();
     SaveManager_ThreadPoolWait();
     OTRAudio_Exit();
     if (CVarGetInteger(CVAR_REMOTE_CROWD_CONTROL("Enabled"), 0)) {

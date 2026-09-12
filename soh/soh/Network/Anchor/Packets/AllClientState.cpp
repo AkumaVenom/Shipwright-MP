@@ -1,4 +1,5 @@
 #include "soh/Network/Anchor/Anchor.h"
+#include "soh/Network/Direct/DirectMultiplayer.h"
 #include "soh/Network/Anchor/JsonConversions.hpp"
 #include <nlohmann/json.hpp>
 #include <ship/Context.h>
@@ -22,8 +23,10 @@ void Anchor::HandlePacket_AllClientState(nlohmann::json payload) {
     for (auto& client : newClients) {
         if (client.self) {
             ownClientId = client.clientId;
-            CVarSetInteger(CVAR_REMOTE_ANCHOR("LastClientId"), ownClientId);
-            Ship::Context::GetRawInstance()->GetWindow()->GetGui()->SaveConsoleVariablesNextFrame();
+            if (!Shipwright::Direct::Session::Get().Active()) {
+                CVarSetInteger(CVAR_REMOTE_ANCHOR("LastClientId"), ownClientId);
+                Ship::Context::GetRawInstance()->GetWindow()->GetGui()->SaveConsoleVariablesNextFrame();
+            }
             clients[client.clientId].self = true;
         } else {
             clients[client.clientId].self = false;
@@ -51,7 +54,10 @@ void Anchor::HandlePacket_AllClientState(nlohmann::json payload) {
         clients[client.clientId].seed = client.seed;
         clients[client.clientId].isSaveLoaded = client.isSaveLoaded;
         clients[client.clientId].isGameComplete = client.isGameComplete;
+        if (clients[client.clientId].sceneNum != client.sceneNum || !client.isSaveLoaded)
+            clients[client.clientId].receivedPlayerUpdate = false;
         clients[client.clientId].sceneNum = client.sceneNum;
+        clients[client.clientId].curRoomNum = client.curRoomNum;
         clients[client.clientId].entranceIndex = client.entranceIndex;
     }
 

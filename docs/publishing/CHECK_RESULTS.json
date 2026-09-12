@@ -1,0 +1,160 @@
+{
+  "checks": [
+    {
+      "name": "No distributed source file hidden by ignore rules",
+      "pass": true
+    },
+    {
+      "name": "git -c core.autocrlf=false",
+      "pass": true
+    },
+    {
+      "name": "git ls-files -z",
+      "pass": true
+    },
+    {
+      "name": "Normal git add tracks every intended file",
+      "pass": true
+    },
+    {
+      "name": "git ls-files --stage",
+      "pass": true
+    },
+    {
+      "name": "No submodule gitlinks in index",
+      "pass": true
+    },
+    {
+      "name": "No nested Git metadata",
+      "pass": true
+    },
+    {
+      "name": "No active root workflow YAML files",
+      "pass": true
+    },
+    {
+      "name": "Compile fix checksum: soh/soh/Network/Anchor/Anchor.h",
+      "pass": true
+    },
+    {
+      "name": "Compile fix checksum: soh/soh/Network/Direct/DirectMultiplayer.cpp",
+      "pass": true
+    },
+    {
+      "name": "No ROM/save/generated executable/font/archive binaries by extension",
+      "pass": true
+    },
+    {
+      "name": "No N64 ROM header signatures",
+      "pass": true
+    },
+    {
+      "name": "Only credential-pattern match is unchanged upstream MPQ signing code",
+      "pass": true
+    },
+    {
+      "name": "All six bundled PEM keys are public keys",
+      "pass": true
+    },
+    {
+      "name": "Build, log, ROM, save, secret and downloaded-font paths ignored",
+      "pass": true
+    },
+    {
+      "name": "No file exceeds Git 100-MiB file threshold",
+      "pass": true
+    },
+    {
+      "name": "CMake restore copies all five original matching files",
+      "pass": true
+    },
+    {
+      "name": "Restored bytes match source: Fipps-Regular.otf",
+      "pass": true
+    },
+    {
+      "name": "Restored bytes match source: Montserrat-Regular.ttf",
+      "pass": true
+    },
+    {
+      "name": "Restored bytes match source: Inconsolata-Regular.ttf",
+      "pass": true
+    },
+    {
+      "name": "Restored bytes match source: NotoSansJP-Regular.ttf",
+      "pass": true
+    },
+    {
+      "name": "Restored bytes match source: PressStart2P-Regular.ttf",
+      "pass": true
+    },
+    {
+      "name": "CMake restore reuses matching files without rewriting",
+      "pass": true
+    },
+    {
+      "name": "Existing mismatched file rejected and retained",
+      "pass": true
+    },
+    {
+      "name": "DOWNLOAD path accepts verified fixture",
+      "pass": true
+    },
+    {
+      "name": "Downloaded hash mismatch removed, not installed",
+      "pass": true
+    },
+    {
+      "name": "Failed download leaves no partial target",
+      "pass": true
+    },
+    {
+      "name": "Unsafe manifest name rejected",
+      "pass": true
+    },
+    {
+      "name": "git -c user.name=Snapshot Check",
+      "pass": true
+    },
+    {
+      "name": "Fresh local clone succeeds",
+      "pass": true
+    },
+    {
+      "name": "Fresh clone contains the entire intended source file set",
+      "pass": true
+    },
+    {
+      "name": "Fresh clone retains critical source build-helper/WindowsHelper.ps1",
+      "pass": true
+    },
+    {
+      "name": "Fresh clone retains critical source soh/macosx/sohIcon.png",
+      "pass": true
+    },
+    {
+      "name": "Fresh clone retains critical source torch/lib/StormLib/src/libtomcrypt/src/headers/tomcrypt.h",
+      "pass": true
+    },
+    {
+      "name": "Fresh clone retains critical source libultraship/CMakeLists.txt",
+      "pass": true
+    },
+    {
+      "name": "Fresh clone retains critical source torch/CMakeLists.txt",
+      "pass": true
+    },
+    {
+      "name": "19 static contracts also pass from fresh clone",
+      "pass": true
+    },
+    {
+      "name": "Fresh clone has no pending changes",
+      "pass": true
+    }
+  ],
+  "file_count": 25860,
+  "largest_file": "soh/assets/custom/textures/nintendo_rogo_static/nintendo_rogo_static_Tex_LUS_000000",
+  "largest_bytes": 6291548,
+  "max_relative_path": 114
+}

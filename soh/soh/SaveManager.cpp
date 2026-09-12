@@ -1,4 +1,5 @@
 #include "SaveManager.h"
+#include "soh/Network/Direct/DirectMultiplayer.h"
 #include "OTRGlobals.h"
 #include "Enhancements/game-interactor/GameInteractor.h"
 #include "Enhancements/randomizer/SeedContext.h"
@@ -1367,6 +1368,7 @@ void SaveManager::SaveGlobal() {
 }
 
 void SaveManager::LoadFile(int fileNum) {
+    Shipwright::Direct::Session::Get().PrepareForSaveChange();
     saveMtx.lock();
     SPDLOG_INFO("Load File - fileNum: {}", fileNum);
     std::filesystem::path fileName = GetFileName(fileNum);

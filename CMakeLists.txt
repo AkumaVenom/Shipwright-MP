@@ -7,6 +7,14 @@ set(CMAKE_C_STANDARD 23 CACHE STRING "The C standard to use")
 set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15" CACHE STRING "Minimum OS X deployment version")
 
 project(Ship VERSION 9.2.3 LANGUAGES C CXX)
+
+# Publishing snapshot: obtain content-pinned font resources before dependency builds.
+include(CMake/RestoreSourceFonts.cmake)
+soh_restore_source_fonts(
+    "${CMAKE_CURRENT_SOURCE_DIR}/CMake/source-fonts.json"
+    "${CMAKE_CURRENT_SOURCE_DIR}/soh/assets/custom/fonts"
+)
+
 include(CMake/soh-cvars.cmake)
 include(CMake/lus-cvars.cmake)
 set(SPDLOG_LEVEL_TRACE 0)

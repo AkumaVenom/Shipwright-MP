@@ -1,0 +1,192 @@
+{
+  "edition": "1.0.0 Direct-IP implementation preview",
+  "date": "2026-09-12",
+  "input_archive": "Shipwright-MP.zip",
+  "input_archive_sha256": "d8650f03128b52a79daa44d7da10929f75889a72340f3b2ce0e2cbb6d4c3adc3",
+  "scope": "Source implementation; native transport tested; full game build and gameplay not verified. See docs/multiplayer.",
+  "original_files_retained": true,
+  "original_file_count": 25837,
+  "unchanged_original_file_count": 25819,
+  "modified": [
+    {
+      "path": "README.md",
+      "original_sha256": "a86f43179110bcdb14489b1459b749ae350070caa28ef92dbd334997d2ab62e8",
+      "updated_sha256": "725059ff6f3f9824d831e81772257d723e2e600509b208c11c7e5e1d0b131cc4"
+    },
+    {
+      "path": "soh/CMakeLists.txt",
+      "original_sha256": "c11897d23eec6273630c50248e1b18ab5b84c03cd4af5aa2c7eee8c126482f06",
+      "updated_sha256": "a9a642f59d733cc341681bfef46c3a48c1d11fb75c168740cabbec48bace9031"
+    },
+    {
+      "path": "soh/soh/Enhancements/savestates.cpp",
+      "original_sha256": "fc507f39d302ae06fa242e928c4eae44fb5a52c118d014669c9bf52502bbcd89",
+      "updated_sha256": "bfa5723512bfad8a880b386a0972467f9ea50b54a5b37162fd81f44081d81692"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/Anchor.cpp",
+      "original_sha256": "76f87ead44e9bc925fed210a6582ec4c7671691974cc7a569cee628434b526eb",
+      "updated_sha256": "771daba9b8dce7f02e62c389fea746e0ade0fdd9cf042d210bc8cb004afef3c1"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/Anchor.h",
+      "original_sha256": "1f0b6de889cba23f4e9a86e874b227b2c7cc8135075ae40838a84856477efb4e",
+      "updated_sha256": "375c0960021adf70c310e7d927ff499f88962e069603a9c2288c6aee29e95fd4"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/DummyPlayer.cpp",
+      "original_sha256": "759cf27162f827361d487d2e8f015bba3231e06b2852007e999dfc824678e8f3",
+      "updated_sha256": "21e87e066a42e17c923c4c2df2a7a7f36126aaf690ea6b61734d9473d2eb9b41"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/HookHandlers.cpp",
+      "original_sha256": "45f7584ef17d42bcfca6e241a9966ba5bb0f3d597b51250a2718d088995e0d5b",
+      "updated_sha256": "e67d587931f1e12449b08d7cd92a1179d905ba3174162e121f6ee3def871f022"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/JsonConversions.hpp",
+      "original_sha256": "47cea1968207495471c303ebd898427ab016c52f579c7a648202aa1e4209eb1f",
+      "updated_sha256": "df05ba9c7eac9b630df261d926e6b21e7a238577eda1d7390a06d793f2751bef"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/Menu.cpp",
+      "original_sha256": "2c0672fc9069ba14019023f0745baa525bb7b6c303f6804454a927bba9fc6c08",
+      "updated_sha256": "2a46a3336972403ee90570c73d19ae8706ac01e94192500f7a08280ec636a365"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/Packets/AllClientState.cpp",
+      "original_sha256": "121418fa4f94712b1a8d0fdbca4d9966100b49cd3c6928efaa77fcba04d49588",
+      "updated_sha256": "cf291b3e76509d3ff769d429c4b2e13bf28aa46da9dee4b23af56505d7606afd"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/Packets/PlayerUpdate.cpp",
+      "original_sha256": "8c7b1097a113e580afd860b13420a66ace5508b5c949654e6c86eecbf13b2aa6",
+      "updated_sha256": "217b0861350656c7eb7647bef85091b7ea9c7672301b174bf52c88ef31343763"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/Packets/UpdateClientState.cpp",
+      "original_sha256": "1d7509860aa6bab58160d647274ed43991b773fc4b77cd6610149084916a6f23",
+      "updated_sha256": "e971a8e2b910729e2794070d0cfa64288f397244a5da619b5f6909b97b687b95"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/Packets/UpdateRoomState.cpp",
+      "original_sha256": "81602356fec4acd08e6a088ba8a72d0427222495810a57f34829e444d48e9ffa",
+      "updated_sha256": "a04a07a317464c3a12412df8e130bcabbc936c5e8f57448bc1c6f7e2cb4667a3"
+    },
+    {
+      "path": "soh/soh/Network/Anchor/Packets/UpdateTeamState.cpp",
+      "original_sha256": "76e0a469b59b2174653bde8907d72626b49b3f8fda7569bf4162fe3de88ce55a",
+      "updated_sha256": "80b0a790ace3beb98402fa13c9052e0e442036d260d1455a241f40180cc149ca"
+    },
+    {
+      "path": "soh/soh/Network/Network.h",
+      "original_sha256": "4ff7e167a6bf301aeb65ccf27fb0c23a8e32e5a949e671fc7462a5adf68cd0b7",
+      "updated_sha256": "e7221cca1dfccc594f0f4e30c3a9e63fac90c5f9f62132fb35a91face21574c1"
+    },
+    {
+      "path": "soh/soh/OTRGlobals.cpp",
+      "original_sha256": "417d6ea948475e37fbf301ff3a9689f3580e784319d519837da766b858880f06",
+      "updated_sha256": "51ef9db131ba4dc3d1799b4207c8a32a7f3758597ae329daf52b064e138abf43"
+    },
+    {
+      "path": "soh/soh/SaveManager.cpp",
+      "original_sha256": "ee1316d72e7febd10e2cb12bc861d098bd6dbedceba37f1a8374f09a7f4e619f",
+      "updated_sha256": "b2a3bbc50ce2d4fdd910a0e479363802666b0510bbe755e50e254387eef1ab8e"
+    },
+    {
+      "path": "soh/soh/SohGui/SohMenuNetwork.cpp",
+      "original_sha256": "55c40da4d1eda0280ab259e0ba4c148e2b83568dcb789feec08d88358c4dde7f",
+      "updated_sha256": "01d32a9306a64e687484c4ca2c9c863df12a2497854ed92f8a35f3d804a5994d"
+    }
+  ],
+  "added": [
+    {
+      "path": "CHANGELOG_MULTIPLAYER.md",
+      "sha256": "3c53b153f51df607a5fa99b80e1d04719fb59a5e76325cd49f06c3809796c9ed"
+    },
+    {
+      "path": "MULTIPLAYER_QUICKSTART.md",
+      "sha256": "3b4042d4058d03ac333bcf7f797ee8eb2575e15643f4f65ab610ccc3ee120f4d"
+    },
+    {
+      "path": "docs/multiplayer/ACCEPTANCE_CHECKLIST.md",
+      "sha256": "93f272896e408f77f702a467fbd69e0c94c4e19eb10b9b3478d33e78afe8ecfc"
+    },
+    {
+      "path": "docs/multiplayer/DIRECT_MULTIPLAYER.md",
+      "sha256": "9e69c1afea9535f18f2a581c392e9569497ccc2c910c209bbb95a133e3e834ea"
+    },
+    {
+      "path": "docs/multiplayer/VALIDATION.md",
+      "sha256": "fbf728b07b5754a0c55523877e07d7068fc5dd8083d38342a95047dbf2e8d299"
+    },
+    {
+      "path": "docs/multiplayer/logs/clang-configure.log",
+      "sha256": "3b9d68e17533bbdfb317209b17d712c2f24f0910177916bc532b64cd093da1e6"
+    },
+    {
+      "path": "docs/multiplayer/logs/clang-ctest.log",
+      "sha256": "18ad8ff646a4de1d5d56832227f70b38b7bd665f34cd870327a3863cdbee15b2"
+    },
+    {
+      "path": "docs/multiplayer/logs/clang-native-cases.log",
+      "sha256": "81fade2116241919862416f8a7f5675e00ecd285c79e8bc3dfb52d76c6ffe541"
+    },
+    {
+      "path": "docs/multiplayer/logs/full-build-configure.log",
+      "sha256": "e087a3e6a1d5592de29e292dda86ebf0e325c177bdc0e1a93715c8fb07519c51"
+    },
+    {
+      "path": "docs/multiplayer/logs/gcc-ctest.log",
+      "sha256": "ef761b2f56026435c8c680a10c175d883465b014fc9c81b1bada6cfe5a907557"
+    },
+    {
+      "path": "docs/multiplayer/logs/gcc-native-cases.log",
+      "sha256": "81fade2116241919862416f8a7f5675e00ecd285c79e8bc3dfb52d76c6ffe541"
+    },
+    {
+      "path": "docs/multiplayer/logs/source-contracts.log",
+      "sha256": "cbc948cc073771a42c2639a8e0f333561d9cf5ec03b122204e6b2a0e2e3f133a"
+    },
+    {
+      "path": "soh/soh/Network/Direct/DirectMultiplayer.cpp",
+      "sha256": "6edb837d9beacb15079a2cc97be68595087d3106ecabe3b9e2bce9f508c9650e"
+    },
+    {
+      "path": "soh/soh/Network/Direct/DirectMultiplayer.h",
+      "sha256": "8a0d76c8763f953553adea69c1f0eeacfa35ef8b257e0b2acd20562e9cec1c26"
+    },
+    {
+      "path": "soh/soh/Network/Direct/Menu.cpp",
+      "sha256": "71ee3ed101965f85c145fd41cb138811817d1c0c830b1040929d0bee3e2061e4"
+    },
+    {
+      "path": "soh/soh/Network/Direct/ProgressRules.h",
+      "sha256": "c44905d9c64b86430c049cef3cee940cfd2fa5b4e73fdd015a8a3769660414e1"
+    },
+    {
+      "path": "soh/soh/Network/Direct/Transport.cpp",
+      "sha256": "702dd2159d4eda66e853ef8030b7e23881326d384bde346569904ef775641318"
+    },
+    {
+      "path": "soh/soh/Network/Direct/Transport.h",
+      "sha256": "1ce9837fca84dd13c3efda6dce34a510c290f7a4b944b0daad91c2eb391eaaf8"
+    },
+    {
+      "path": "tests/direct_multiplayer/CMakeLists.txt",
+      "sha256": "aa3bf504f9aad315409b8ff9280c8bf3482859fe5f06d28bb6c09117553b447c"
+    },
+    {
+      "path": "tests/direct_multiplayer/direct_tests.cpp",
+      "sha256": "cd969b1824b829a75de33ab1645bd88966e1cc9eac056691d00d62c58c4e4bf7"
+    },
+    {
+      "path": "tests/direct_multiplayer/source_contract_tests.py",
+      "sha256": "5cf64f2d100d7eb0f7ec28f96c4a38b1aa3d265251f2e372d72beb09e55fdb75"
+    }
+  ],
+  "manifest_note": "This manifest excludes itself to avoid a self-referential checksum.",
+  "historical_record": true,
+  "superseded_by": "docs/publishing/SOURCE_MANIFEST.json",
+  "historical_note": "These hashes describe the earlier Direct-IP source preview, not the consolidated GitHub snapshot. Use SOURCE_FILES.sha256 for this ZIP and docs/publishing/SOURCE_MANIFEST.json for its changes."
+}

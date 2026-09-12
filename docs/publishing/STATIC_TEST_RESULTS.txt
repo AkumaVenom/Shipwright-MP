@@ -1,0 +1,20 @@
+PASS Network > Multiplayer sidebar exists
+PASS Offline / Host / Join selector
+PASS No automatic direct connection on startup
+PASS Shutdown before audio teardown
+PASS File change disconnect before save mutex
+PASS Backup before transport start
+PASS Backups do not overwrite
+PASS Share opt-in defaults off
+PASS Personal snapshot path is gated
+PASS Whole SaveContext and inventory are never assigned remotely
+PASS Identity / seed / settings checked
+PASS Join completion waits for roster / snapshot
+PASS No direct registration during same hook-map iteration
+PASS Save worker requests main-thread snapshot
+PASS Existing Anchor sends route through direct transport
+PASS Snapshot uses direct selective merge
+PASS Windows socket library linked
+PASS Save-state request and execution paths both gated
+PASS Scope limits visible in UI
+19 / 19 static contracts passed (not compilation).

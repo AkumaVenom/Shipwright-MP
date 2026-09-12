@@ -1,4 +1,5 @@
 #include "Anchor.h"
+#include "soh/Network/Direct/DirectMultiplayer.h"
 #include "soh/Enhancements/cosmetics/cosmeticsTypes.h"
 #include "soh/Enhancements/game-interactor/GameInteractor.h"
 #include "soh/frame_interpolation.h"
@@ -95,10 +96,11 @@ void Anchor::RegisterHooks() {
             RefreshClientActors();
         }
 
+        if (saveSnapshotRequested.exchange(false)) SendPacket_UpdateTeamState();
         SendPacket_PlayerUpdate();
     });
 
-    COND_HOOK(OnGameFrameUpdate, isConnected, [&]() { ProcessIncomingPacketQueue(); });
+    COND_HOOK(OnGameFrameUpdate, isConnected && !Shipwright::Direct::Session::Get().Active(), [&]() { ProcessIncomingPacketQueue(); });
 
     COND_HOOK(OnPlayerSfx, isConnected, [&](u16 sfxId) { SendPacket_PlayerSfx(sfxId); });
     COND_HOOK(OnOcarinaNote, isConnected,
@@ -108,7 +110,9 @@ void Anchor::RegisterHooks() {
 
     COND_HOOK(OnSaveFile, isConnected, [&](s16 fileNum, int sectionID) {
         if (sectionID == 0) {
-            SendPacket_UpdateTeamState();
+            // OnSaveFile runs on SaveManager's worker. Snapshot gSaveContext
+            // on the next game frame instead of reading it from this thread.
+            saveSnapshotRequested = true;
         }
     });
 

@@ -51,6 +51,8 @@ inline void from_json(const json& j, PosRot& posRot) {
 }
 
 inline void from_json(const json& j, AnchorClient& client) {
+    client = AnchorClient{};
+    client.ocarinaNote = 0xFF;
     client.clientId = j.value("clientId", (u32)0);
     client.name = j.value("name", "???");
     client.color = j.value("color", Color_RGB8{ 255, 255, 255 });

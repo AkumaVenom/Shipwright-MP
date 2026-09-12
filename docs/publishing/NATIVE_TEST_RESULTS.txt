@@ -1,0 +1,22 @@
+PASS IPv4 validation
+PASS byte-by-byte frame decoding
+PASS coalesced frames
+PASS frame limits and decoder reset
+PASS 600 randomized payloads / fragmentation
+PASS packed upgrade-tier merge
+PASS heart totals without manufactured progress
+PASS inventory validation
+PASS permanent vs personal item slots
+PASS host/client bidirectional
+PASS three peers / isolated addressing
+PASS 512 KiB binary payload
+PASS 500-message ordering
+PASS rejection flush before close
+PASS disconnect / reconnect / host loss
+PASS occupied port / refused connection
+PASS eight-player capacity
+PASS cancel / stop / repeated reuse
+PASS invalid raw wire rejection
+PASS fragmented live TCP wire
+PASS bounded queues / shutdown with stalled receiver
+21 / 21 cases passed

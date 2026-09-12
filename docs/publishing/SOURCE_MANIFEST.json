@@ -1,0 +1,272 @@
+{
+  "input_archives": [
+    {
+      "name": "Shipwright-MP.zip",
+      "sha256": "d8650f03128b52a79daa44d7da10929f75889a72340f3b2ce0e2cbb6d4c3adc3"
+    },
+    {
+      "name": "Shipwright-MP_1.0.0_DirectIP_SourcePreview.zip",
+      "sha256": "fb2ca398e76e06724519dac0b339a7a224f342ad8066585764feb2e6c2fbf43d"
+    },
+    {
+      "name": "Shipwright-MP_Windows_Build_Helper.zip",
+      "sha256": "d119d531db1db55d34b2ac13b200a16b2ab71dd839d92f481134e5ffc6e536bc"
+    },
+    {
+      "name": "Shipwright-MP_Compile_Fix_1.2.zip",
+      "sha256": "1fc6412a7c7cdec5b6fba4b24636ce9afb38ca8bd92b3799602087f5108df86e"
+    }
+  ],
+  "scope": "Consolidated repository changes relative to source preview. Self and SOURCE_FILES.sha256 are excluded to avoid recursive hashes. The final archive file list is SOURCE_FILES.sha256.",
+  "changes": {
+    "unchanged_count": 25825,
+    "modified": [
+      {
+        "path": ".gitattributes",
+        "before": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+        "after": "dd6b4b99e1ac630d533280b1ad8457cd648ab783055475a413a76c4fe0f0d752"
+      },
+      {
+        "path": ".gitignore",
+        "before": "d9e7df24e13d7a8eb4cce04601bd72bef6bad1dfd4f7fbb53bd3b4dbe4a42999",
+        "after": "d23754f904f1f1a3debfb27ed67926806fd967cfbb45fc1848dd061b338e0b61"
+      },
+      {
+        "path": "CHANGELOG_MULTIPLAYER.md",
+        "before": "3c53b153f51df607a5fa99b80e1d04719fb59a5e76325cd49f06c3809796c9ed",
+        "after": "111177172092afc44e331106c281f1def00d100e479016813e0b46f1d4910db2"
+      },
+      {
+        "path": "CMakeLists.txt",
+        "before": "50b4226db9a9e08fe64244c67cd51aefc05dc8e5f0bfd6ee437067915c1decfd",
+        "after": "36a7c8520efb5a19a3a5e0cc9e692dafb367449c8b2cbc78225bef1539c3b880"
+      },
+      {
+        "path": "MULTIPLAYER_QUICKSTART.md",
+        "before": "3b4042d4058d03ac333bcf7f797ee8eb2575e15643f4f65ab610ccc3ee120f4d",
+        "after": "4b0f4074f677bc66f17ed3962aab798cbf65f1e24b8dc27b1aae6e1c8444bafc"
+      },
+      {
+        "path": "MULTIPLAYER_SOURCE_MANIFEST.json",
+        "before": "a8780b1c656b76cc7b41dbc693ca5c800f5a913dfb85ec500e42fbc3167b9a4c",
+        "after": "fc179311057f62951808493d5f2d27cee4d9b8f03928ae4512c27b1dd5781723"
+      },
+      {
+        "path": "README.md",
+        "before": "725059ff6f3f9824d831e81772257d723e2e600509b208c11c7e5e1d0b131cc4",
+        "after": "bfb94ef4c1cf61437d4e620508016eca8f22cafcf5c7e9c68ad95b5559370dc0"
+      },
+      {
+        "path": "docs/BUILDING.md",
+        "before": "804317784b070167295d5a173ef6df62ab4f8d1a5cc1b85f2e8dc148510bc386",
+        "after": "728b4783c22b5a80a8ba15bb30a9c964731c08e37c7e01c40efbb133542bb18c"
+      },
+      {
+        "path": "docs/multiplayer/VALIDATION.md",
+        "before": "fbf728b07b5754a0c55523877e07d7068fc5dd8083d38342a95047dbf2e8d299",
+        "after": "6b8016feaa0b2d44a12498f9f0660fcae984be033b3dd5c9b0eab54998946e57"
+      },
+      {
+        "path": "libultraship/.gitignore",
+        "before": "e6824af35e67ffe0b8ee916c1456080f5256d25f5cb724c6dfb5110151b3fa9c",
+        "after": "84292338979d4307112ce6749dedbfc1d8627a05d6e78a0499ab4692d7cd0546"
+      },
+      {
+        "path": "soh/.gitignore",
+        "before": "7c7e0c39d8436eb0d76d85438e142a27d32ed6d27c560e95ad28977f3b089ae1",
+        "after": "958972f85c886f1e07716a33fd66074f259db74c536ae854bc126ff0fa4d76f1"
+      },
+      {
+        "path": "soh/soh/Network/Anchor/Anchor.h",
+        "before": "375c0960021adf70c310e7d927ff499f88962e069603a9c2288c6aee29e95fd4",
+        "after": "1f262fef27bfaf40c4f3a95fe8b8bfc426be9cfc2cf011accdbe0061d8e7e33d"
+      },
+      {
+        "path": "soh/soh/Network/Direct/DirectMultiplayer.cpp",
+        "before": "6edb837d9beacb15079a2cc97be68595087d3106ecabe3b9e2bce9f508c9650e",
+        "after": "658228bf4d078426603adb8e9304276f16b39926b9347ac4ff54280ad57fb7c1"
+      },
+      {
+        "path": "torch/.gitignore",
+        "before": "2512a54db7822521f74735377d9ec802436155bf9387bf0ecf767da0afe55a80",
+        "after": "7935203dae63e0f4da63a52ea37a4a56b390a73669b738d3cd4bb6d62ea8f997"
+      }
+    ],
+    "removed": [
+      {
+        "path": ".github/workflows/clang-format.yml",
+        "before": "32508f4e6327adbc9b4d0e5a77e72b5143b7cede81343b8ddcaa09fe07ab8035"
+      },
+      {
+        "path": ".github/workflows/generate-builds.yml",
+        "before": "14ae6a37758f4a8b69c3f2a64f6fed2c732a0a44843e3664113c75455a851d03"
+      },
+      {
+        "path": ".github/workflows/lint-json.yml",
+        "before": "1a5024b9e3fc43582807d164686b42b2e440b857385efe5b6b1b253562a82f5e"
+      },
+      {
+        "path": ".github/workflows/pr-artifacts.yml",
+        "before": "ef5a3e07eee8c63c82f1b7ef17c92c3234db1820e180c099ae53122302a6b04b"
+      },
+      {
+        "path": ".github/workflows/test-builds-on-distros.yml",
+        "before": "a34419603f1313840b555d688ce9cde96b045ca1b07f91896918ee560d1cecf6"
+      },
+      {
+        "path": ".gitmodules",
+        "before": "3d38d99f420b69c3aff95f34854b09a8f674c9d579d309a2f26edab5a77e5f54"
+      },
+      {
+        "path": "docs/multiplayer/logs/clang-configure.log",
+        "before": "3b9d68e17533bbdfb317209b17d712c2f24f0910177916bc532b64cd093da1e6"
+      },
+      {
+        "path": "docs/multiplayer/logs/clang-ctest.log",
+        "before": "18ad8ff646a4de1d5d56832227f70b38b7bd665f34cd870327a3863cdbee15b2"
+      },
+      {
+        "path": "docs/multiplayer/logs/clang-native-cases.log",
+        "before": "81fade2116241919862416f8a7f5675e00ecd285c79e8bc3dfb52d76c6ffe541"
+      },
+      {
+        "path": "docs/multiplayer/logs/full-build-configure.log",
+        "before": "e087a3e6a1d5592de29e292dda86ebf0e325c177bdc0e1a93715c8fb07519c51"
+      },
+      {
+        "path": "docs/multiplayer/logs/gcc-ctest.log",
+        "before": "ef761b2f56026435c8c680a10c175d883465b014fc9c81b1bada6cfe5a907557"
+      },
+      {
+        "path": "docs/multiplayer/logs/gcc-native-cases.log",
+        "before": "81fade2116241919862416f8a7f5675e00ecd285c79e8bc3dfb52d76c6ffe541"
+      },
+      {
+        "path": "docs/multiplayer/logs/source-contracts.log",
+        "before": "cbc948cc073771a42c2639a8e0f333561d9cf5ec03b122204e6b2a0e2e3f133a"
+      },
+      {
+        "path": "soh/assets/custom/fonts/Fipps-Regular.otf",
+        "before": "39c976af324dcaa5ea9543db8a9b99158c5758fe164a667d636065f66eea9a23"
+      },
+      {
+        "path": "soh/assets/custom/fonts/Inconsolata-Regular.ttf",
+        "before": "9d542b954a5ccbf5edd68f240f4a4de9c99acbe3cb4291f0089796e99cddb02e"
+      },
+      {
+        "path": "soh/assets/custom/fonts/Montserrat-Regular.ttf",
+        "before": "c3fb0280e4339f6c70cea42b8b432c6fb17fde130fbb12e9209c7cdfa79d976f"
+      },
+      {
+        "path": "soh/assets/custom/fonts/NotoSansJP-Regular.ttf",
+        "before": "f32915916d2d6f35bb0d3d7ef0784504914bf0235afb02eec552bd14d06d3552"
+      },
+      {
+        "path": "soh/assets/custom/fonts/PressStart2P-Regular.ttf",
+        "before": "8d0248e41694fdd875dbcde859ee1bae5982ecfdc6c7e5e451b48950d29ba95a"
+      }
+    ],
+    "added": [
+      {
+        "path": ".github/workflows/README.md",
+        "sha256": "f4088df9179daf200d2b1233fc5abe7c543a5bd230bd5aade7885ec43d02e279"
+      },
+      {
+        "path": "00_START_HERE.txt",
+        "sha256": "cc3b210bf43261d684a2650174f6a5dcf3c7dc9df3eed1a13bce435d1292f393"
+      },
+      {
+        "path": "1_SETUP_TOOLS.cmd",
+        "sha256": "9d3266c410c37ea658fd5a45dea98285fb33379ef42c4e8cc6e3627326cd6455"
+      },
+      {
+        "path": "2_BUILD_GAME.cmd",
+        "sha256": "254252e3fd156fd883ced83e9d55453cba392a9a20e4dad71f5ea5ab31ded87f"
+      },
+      {
+        "path": "3_CHECK_TOOLS.cmd",
+        "sha256": "82abdaeadebff9bb47117524ae8534fea54457e630e0ede0fd4fb28a7daed0d5"
+      },
+      {
+        "path": "4_RESUME_BUILD.cmd",
+        "sha256": "eaf1e442f435ccab628549e84d5328554f1c9bb748f46bdb5378965ba4d8d509"
+      },
+      {
+        "path": "BUILD_WINDOWS.md",
+        "sha256": "152724ffcb2dbaf6db326d6c0d28b0561454037ab4cc6e5b1f656fcdf8bb6187"
+      },
+      {
+        "path": "CMake/RestoreSourceFonts.cmake",
+        "sha256": "bd13123e0f18f6dfb9afbf26a5576c8249b23486ba307503b7be21df6085b541"
+      },
+      {
+        "path": "CMake/source-fonts.json",
+        "sha256": "9f1b1af97c7fb87a779b5105c29fbf86538150c132394da27056b2e5cf8defdc"
+      },
+      {
+        "path": "PROVENANCE.md",
+        "sha256": "68347fec7a627fb718c4fb9f05fb0563529215e1dfdfea131037f7ed15081d21"
+      },
+      {
+        "path": "PUBLISH_TO_GITHUB.md",
+        "sha256": "7f014d5ee0c06bf8df46d35614639a601be80a56b36dae56724c11c426ea2c53"
+      },
+      {
+        "path": "README_UPSTREAM.md",
+        "sha256": "725059ff6f3f9824d831e81772257d723e2e600509b208c11c7e5e1d0b131cc4"
+      },
+      {
+        "path": "build-helper/CHANGELOG.md",
+        "sha256": "90e5f1fa87eed77a9777c2bcdc7b574fe594c0c3c3dcd706ce6b8171c29ac6af"
+      },
+      {
+        "path": "build-helper/WindowsHelper.ps1",
+        "sha256": "599a4ce62fe81621955077d9cda79dcf7d23d3ed6e9f46feda6cc9fce64dfc71"
+      },
+      {
+        "path": "docs/publishing/CHECK_RESULTS.json",
+        "sha256": "430bf626d4fcb34cc651ed705a964c210e8e5268be113a8dc5be8223661b6759"
+      },
+      {
+        "path": "docs/publishing/NATIVE_TEST_RESULTS.txt",
+        "sha256": "81fade2116241919862416f8a7f5675e00ecd285c79e8bc3dfb52d76c6ffe541"
+      },
+      {
+        "path": "docs/publishing/REPOSITORY_TEST_RESULTS.txt",
+        "sha256": "1ba7944f2edf1c8531db62f8d42a8ba8f16c268dcdeb26576f126135c9e9051e"
+      },
+      {
+        "path": "docs/publishing/STATIC_TEST_RESULTS.txt",
+        "sha256": "cbc948cc073771a42c2639a8e0f333561d9cf5ec03b122204e6b2a0e2e3f133a"
+      },
+      {
+        "path": "docs/publishing/VALIDATION.md",
+        "sha256": "ad58ca6f5250caf8779a27476a56553fd05b58badfafc91c95ffea1c1da7e562"
+      },
+      {
+        "path": "docs/publishing/upstream-workflows/README.md",
+        "sha256": "103205871215a8334174441ad7cc9b217d40df71980c68f89ec16034c5b30b0b"
+      },
+      {
+        "path": "docs/publishing/upstream-workflows/clang-format.yml",
+        "sha256": "32508f4e6327adbc9b4d0e5a77e72b5143b7cede81343b8ddcaa09fe07ab8035"
+      },
+      {
+        "path": "docs/publishing/upstream-workflows/generate-builds.yml",
+        "sha256": "14ae6a37758f4a8b69c3f2a64f6fed2c732a0a44843e3664113c75455a851d03"
+      },
+      {
+        "path": "docs/publishing/upstream-workflows/lint-json.yml",
+        "sha256": "1a5024b9e3fc43582807d164686b42b2e440b857385efe5b6b1b253562a82f5e"
+      },
+      {
+        "path": "docs/publishing/upstream-workflows/pr-artifacts.yml",
+        "sha256": "ef5a3e07eee8c63c82f1b7ef17c92c3234db1820e180c099ae53122302a6b04b"
+      },
+      {
+        "path": "docs/publishing/upstream-workflows/test-builds-on-distros.yml",
+        "sha256": "a34419603f1313840b555d688ce9cde96b045ca1b07f91896918ee560d1cecf6"
+      }
+    ]
+  }
+}

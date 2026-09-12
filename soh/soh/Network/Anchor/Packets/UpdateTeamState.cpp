@@ -1,4 +1,5 @@
 #include "soh/Network/Anchor/Anchor.h"
+#include "soh/Network/Direct/DirectMultiplayer.h"
 #include "soh/Network/Anchor/JsonConversions.hpp"
 #include <nlohmann/json.hpp>
 #include "soh/OTRGlobals.h"
@@ -23,11 +24,7 @@ extern PlayState* gPlayState;
  * When receiving this packet, if there is items in the team queue, we will play them back in order.
  */
 
-void Anchor::SendPacket_UpdateTeamState() {
-    if (!IsSaveLoaded() || !roomState.syncItemsAndFlags) {
-        return;
-    }
-
+nlohmann::json Anchor::BuildTeamState() {
     json payload;
     payload["type"] = UPDATE_TEAM_STATE;
     payload["targetTeamId"] = CVarGetString(CVAR_REMOTE_ANCHOR("TeamId"), "default");
@@ -105,7 +102,14 @@ void Anchor::SendPacket_UpdateTeamState() {
         // }
     }
 
-    SendJsonToRemote(payload);
+    return payload;
+}
+
+void Anchor::SendPacket_UpdateTeamState() {
+    if (!IsSaveLoaded() || !roomState.syncItemsAndFlags) {
+        return;
+    }
+    SendJsonToRemote(BuildTeamState());
 }
 
 void Anchor::SendPacket_ClearTeamState(std::string teamId) {
@@ -118,11 +122,16 @@ void Anchor::SendPacket_ClearTeamState(std::string teamId) {
 }
 
 void Anchor::HandlePacket_UpdateTeamState(nlohmann::json payload) {
+    if (Shipwright::Direct::Session::Get().Active()) {
+        Shipwright::Direct::Session::Get().ApplySharedState(payload);
+        return;
+    }
     if (!roomState.syncItemsAndFlags) {
         return;
     }
 
     isHandlingUpdateTeamState = true;
+    struct ResetHandlingFlag { bool& value; ~ResetHandlingFlag() { value = false; } } reset{ isHandlingUpdateTeamState };
     // This can happen in between file select and the game starting, so we can't use this check, but we need to ensure
     // we be careful to wrap PlayState usage in this check
     //

@@ -8,6 +8,9 @@
 #include <spdlog/spdlog.h>
 #include <queue>
 #include <mutex>
+#include <atomic>
+
+namespace Shipwright::Direct { class Session; }
 
 extern "C" {
 #include "variables.h"
@@ -19,7 +22,7 @@ void DummyPlayer_Update(Actor* actor, PlayState* play);
 void DummyPlayer_Draw(Actor* actor, PlayState* play);
 void DummyPlayer_Destroy(Actor* actor, PlayState* play);
 
-typedef struct {
+typedef struct AnchorClient {
     uint32_t clientId;
     std::string name;
     Color_RGB8 color;
@@ -54,9 +57,11 @@ typedef struct {
     f32 unk_85C;
     s16 unk_862;
     s8 actionVar1;
-    u8 ocarinaNote;
+    u8 ocarinaNote = 0xFF;
     f32 ocarinaModulator;
     s8 ocarinaBend;
+
+    bool receivedPlayerUpdate = false;
 
     // Ptr to the dummy player
     Player* player;
@@ -71,10 +76,12 @@ typedef struct {
 } RoomState;
 
 class Anchor : public Network {
+    friend class Shipwright::Direct::Session;
   private:
     uint32_t spawningDummyPlayerForClientId = 0;
     bool shouldRefreshActors = false;
     bool justLoadedSave = false;
+    std::atomic<bool> saveSnapshotRequested{ false };
     bool isHandlingUpdateTeamState = false;
     bool isProcessingIncomingPacket = false;
     std::queue<nlohmann::json> incomingPacketQueue;
@@ -83,6 +90,7 @@ class Anchor : public Network {
     std::mutex outgoingPacketQueueMutex;
 
     nlohmann::json PrepClientState();
+    nlohmann::json BuildTeamState();
     nlohmann::json PrepRoomState();
     void RegisterHooks();
     void RefreshClientActors();
@@ -112,7 +120,7 @@ class Anchor : public Network {
     void HandlePacket_UpdateTeamState(nlohmann::json payload);
 
   public:
-    uint32_t ownClientId;
+    uint32_t ownClientId = 0;
     inline static const std::string clientVersion = (char*)gGitCommitHash;
 
     // Packet types //
@@ -141,7 +149,7 @@ class Anchor : public Network {
 
     static Anchor* Instance;
     std::map<uint32_t, AnchorClient> clients;
-    RoomState roomState;
+    RoomState roomState{};
 
     void Enable();
     void Disable();

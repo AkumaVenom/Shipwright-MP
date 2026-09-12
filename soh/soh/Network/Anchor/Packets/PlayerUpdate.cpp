@@ -81,6 +81,7 @@ void Anchor::HandlePacket_PlayerUpdate(nlohmann::json payload) {
 
     if (clients.contains(clientId)) {
         auto& client = clients[clientId];
+        client.receivedPlayerUpdate = true;
 
         if (client.linkAge != payload.value("linkAge", (s32)LINK_AGE_ADULT)) {
             shouldRefreshActors = true;

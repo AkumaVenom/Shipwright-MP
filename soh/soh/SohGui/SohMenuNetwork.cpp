@@ -15,6 +15,7 @@ void SohMenu::AddMenuNetwork() {
     // Add Network Menu
     AddMenuEntry("Network", CVAR_SETTING("Menu.NetworkSidebarSection"));
     WidgetPath path;
+    AddSidebarEntry("Network", "Multiplayer", 2);
 
     // Sail
     path = { "Network", "Sail", SECTION_COLUMN_1 };
